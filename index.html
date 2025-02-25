@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Time</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            setInterval(updateDateTime, 1000);
+        });
+
+        function updateDateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString();
+            const dateString = now.toLocaleDateString(undefined, {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            document.getElementById('time').textContent = `${dateString}, ${timeString}`;
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <h1>Local Time</h1>
+        <p id="time"></p>   
+    </div>
+    <footer>
+        <p>This was made by <a href="https://github.com/PulsarPulse" target="_blank">PulsarPulse</a></p>
+    </footer>
+</body>
+</html>
